@@ -1,8 +1,6 @@
 /*
-    Devin Kenney bond98041@gmail.com
     Convert string to ascii, add one, and bitshift binary by one
     10/02/2019
-    Victoria Ramos vickynichol@gmail.com
 */
 #include <iostream>
 #include <string>
