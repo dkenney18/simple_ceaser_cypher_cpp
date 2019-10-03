@@ -1,4 +1,9 @@
-
+/*
+    Devin Kenney bond98041@gmail.com
+    Convert string to ascii, add one, and bitshift binary by one
+    10/02/2019
+    Victoria Ramos vickynichol@gmail.com
+*/
 #include <iostream>
 #include <string>
 
@@ -14,6 +19,8 @@ int main()
     int a = 0;
     int r = 0;
 
+    int digit;
+
     cout << "Enter message to be encrypted: ";
     getline(cin, clear_text);
     cout << endl;
@@ -21,8 +28,19 @@ int main()
     //converts string to ascii
     for (int i = 0; i < clear_text.length(); i++) 
     {
-       a = clear_text[i] + 1;
-       cout << a << endl;
+       a = toascii(clear_text[i] + 1);
+
+       encrypt_text = "";
+        //Converts ascii to binary
+        //we still need to bitshift by one
+       while (a > 0) 
+       {
+           (a % 2) ? encrypt_text.push_back('1') : encrypt_text.push_back('0');
+           a /= 2;
+
+       }
+       cout << encrypt_text << endl;
+
     }
 
     return 0;
