@@ -14,6 +14,8 @@ int main()
     string encrypt_text;
     string bit_string;
 
+    int binary;
+
     int a = 0;
     int r = 0;
 
@@ -23,23 +25,30 @@ int main()
     getline(cin, clear_text);
     cout << endl;
 
+    encrypt_text = "";
+
     //converts string to ascii
     for (int i = 0; i < clear_text.length(); i++) 
     {
        a = toascii(clear_text[i] + 1);
+       //bitshift ascii val by one
+       a = a >> 1;
 
-       encrypt_text = "";
-        //Converts ascii to binary
-        //we still need to bitshift by one
        while (a > 0) 
        {
            (a % 2) ? encrypt_text.push_back('1') : encrypt_text.push_back('0');
            a /= 2;
+           
+        }
+        encrypt_text.push_back('1');
 
-       }
-       cout << encrypt_text << endl;
+       //add space between the binary
+       encrypt_text += " ";
 
     }
+    
+     cout << "Clear text is: " << clear_text << endl;
+     cout << "Encrypted text is: " << encrypt_text << endl; 
 
     return 0;
 }
